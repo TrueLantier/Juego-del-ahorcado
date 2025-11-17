@@ -1,2 +1,16 @@
 Guía y notas sobre el proyecto a desarrollar: juego del ahorcado.
 
+Un juego del ahorcado consiste en tratar de adivinar una palabra antes que la figura u objeto muera/desaparezca.
+
+- Se hará trabajo con strings.
+
+1- Se guardan las palabras en una lista.
+2- Se lee una random.
+3- Mostrar palabra codificada.
+4- Mostar teclado de letras(algunas pueden estar en blanco).
+5- Selección--> acertar: descodificar espacios correspondientes | no acertar: mostrar penalización.
+En ambos casos la letra seleccionada debe quedar inhabilitada.
+6- Continuar hasta acertar la palabra o perder todas las vidas.
+
+
+10- Hacerlo sin interfaz primero.

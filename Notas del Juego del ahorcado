@@ -4,13 +4,15 @@ Un juego del ahorcado consiste en tratar de adivinar una palabra antes que la fi
 
 - Se hará trabajo con strings.
 
-1- Se guardan las palabras en una lista.
+Fase 0 (sin interfaz)
+1- Se guardan las palabras en una lista. HECHO
+1.1- Se guardan las palabras en un archivo de texto.
 2- Se lee una random.
-3- Mostrar palabra codificada.
-4- Mostar teclado de letras(algunas pueden estar en blanco).
-5- Selección--> acertar: descodificar espacios correspondientes | no acertar: mostrar penalización.
-En ambos casos la letra seleccionada debe quedar inhabilitada.
-6- Continuar hasta acertar la palabra o perder todas las vidas.
+3- Mostrar palabra codificada. HECHO
+    4- Mostar teclado de letras(algunas pueden estar en blanco). //Esto es para la interfaz.
+5- Selección--> acertar: descodificar espacios correspondientes | no acertar: mostrar penalización. HECHO
+    En ambos casos la letra seleccionada debe quedar inhabilitada. // Interfaz
+6- Continuar hasta acertar la palabra o perder todas las vidas. HECHO
 
 
-10- Hacerlo sin interfaz primero.
+// Poner diferentes archivos para diferentes modos?

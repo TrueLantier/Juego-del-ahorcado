@@ -1,24 +1,40 @@
 // Métodos propios. Luego usaré StringBuild y sus métodos.
 import java.util.Scanner;
+import java.util.*;
+import java.nio.file.*;
+import java.io.*;
 
 public class Ahorcado_básico {
+
+    private List<String> cargarPalabrasDesdeArchivo() {
+        List<String> palabras = new ArrayList<>();
+        try {
+            Path archivo = Paths.get("Palabras.txt");
+            palabras = Files.readAllLines(archivo);
+
+            //Limpieza.
+
+            return
+        }
+
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Bienvenido al juego del ahorcado.");
-        String[] lista = {"angel"};
+        String[] lista = {"ANGEL"};
+
 
         String palabra = lista[0];
-        char[] caracteres = new char[palabra.length()];
+        String[] caracteres = new String[palabra.length()];
         for ( int i = 0; i < palabra.length(); i++) {
-            caracteres[i] = '_';
+            caracteres[i] = "_";
         }
         String palabra_formada = "";
-        char ingreso;
-        boolean util = true;
+        String ingreso;
         boolean encontrar_letra = false;
-        int errores_max = palabra.length();
-        int contador_errores = 0;
+        int vidas = 10;
         int contador_aciertos = 0;
 
         do {
@@ -26,11 +42,13 @@ public class Ahorcado_básico {
                 System.out.print( caracteres[i] );
             }
 
-            System.out.println("\nIngrese una letra: ");
-            ingreso = scanner.nextLine().charAt(0);
+            System.out.println("\nVidas " + vidas);
+            System.out.println("Ingrese una letra: ");
+            ingreso = String.valueOf(scanner.nextLine().charAt(0)); // Ver cómo mejorar.
+            ingreso = ingreso.toUpperCase().trim();
 
             for ( int i = 0; i < palabra.length(); i++) {
-                if ( ingreso == palabra.charAt(i) ) {
+                if ( ingreso.equals(String.valueOf(palabra.charAt(i))) ) {
                     caracteres[i] = ingreso;
                     encontrar_letra = true;
                     contador_aciertos++;
@@ -41,16 +59,21 @@ public class Ahorcado_básico {
             }
 
             if ( !encontrar_letra ) {
-                System.out.println("Letra incorrecta.");
-                contador_errores++;
+                System.out.println("Letra incorrecta. Vidas -1");
+                vidas--;
             }
 
-        }   while ( (contador_errores < palabra.length()) && (contador_aciertos < palabra.length()) );
+        }   while ( (vidas > 0 ) && (contador_aciertos < palabra.length()) );
 
-        for ( int i = 0; i < palabra.length(); i++) {
-            palabra_formada += caracteres[i];
+        if ( !encontrar_letra ) {
+            System.out.println("Vidas = 0 \nHas perdido.");
+        }   else {
+            System.out.println("Has ganado.");
+            for ( int i = 0; i < palabra.length(); i++) {
+                palabra_formada += caracteres[i];
+            }
+            System.out.println(palabra_formada);
         }
-        System.out.println(palabra_formada);
 
         scanner.close();
     }

@@ -45,7 +45,7 @@ public class Ahorcado_básico {
                 contador_errores++;
             }
 
-        }   while ( (contador_errores < palabra.length()) || (contador_aciertos < palabra.length()) );
+        }   while ( (contador_errores < palabra.length()) && (contador_aciertos < palabra.length()) );
 
         for ( int i = 0; i < palabra.length(); i++) {
             palabra_formada += caracteres[i];

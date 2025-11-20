@@ -6,8 +6,8 @@ Un juego del ahorcado consiste en tratar de adivinar una palabra antes que la fi
 
 Fase 0 (sin interfaz)
 1- Se guardan las palabras en una lista. HECHO
-1.1- Se guardan las palabras en un archivo de texto.
-2- Se lee una random.
+1.1- Se guardan las palabras en un archivo de texto. HECHO
+2- Se lee una random. HECHO
 3- Mostrar palabra codificada. HECHO
     4- Mostar teclado de letras(algunas pueden estar en blanco). //Esto es para la interfaz.
 5- Selección--> acertar: descodificar espacios correspondientes | no acertar: mostrar penalización. HECHO
@@ -15,8 +15,9 @@ Fase 0 (sin interfaz)
 6- Continuar hasta acertar la palabra o perder todas las vidas. HECHO
 
 Bugs o cosas faltantes
-* No pones letras usadas.
-* Las letras repetidas en las palabras solo se ponen la primera vez.
+* No pones letras usadas. Descartar letras.
+* Las letras repetidas en las palabras solo se ponen la primera vez. ARREGLADO
+* Poner la misma letra sube los aciertos y termina el programa.
 
 
 // Poner diferentes archivos para diferentes modos?

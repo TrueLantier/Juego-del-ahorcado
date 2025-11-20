@@ -1,4 +1,8 @@
 // Métodos propios. Luego usaré StringBuild y sus métodos.
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.*;
 import java.nio.file.*;
@@ -6,6 +10,7 @@ import java.io.*;
 
 public class Ahorcado_básico {
 
+    /*
     private List<String> cargarPalabrasDesdeArchivo() {
         List<String> palabras = new ArrayList<>();
         try {
@@ -18,9 +23,11 @@ public class Ahorcado_básico {
         }
 
     }
+     */
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
 
         System.out.println("Bienvenido al juego del ahorcado.");
         String[] lista = {"ANGEL"};

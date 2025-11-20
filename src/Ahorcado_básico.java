@@ -2,17 +2,16 @@
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
-
 
 public class Ahorcado_básico {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         List<String> palabras = new ArrayList<>();
+
         try (BufferedReader br = new BufferedReader(new FileReader("/home/angel/Documentos" +
                 "/ESCUELA/Juego del ahorcado/Palabras.txt"));)  {
             String linea;

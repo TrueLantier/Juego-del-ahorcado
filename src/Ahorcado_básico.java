@@ -36,14 +36,14 @@ public class Ahorcado_básico {
         String palabra_formada = "";
         String ingreso;
         boolean encontrar_letra = false;
-        boolean hayLetraRepetida = false;
+        boolean hayLetraRepetida;
         int vidas = 10;
         int contador_aciertos = 0;
         int contar_letras = 0;
 
         System.out.println("Bienvenido al juego del ahorcado.");
         do {
-            System.out.print("Palabra: \t");
+            System.out.print("\nPalabra: \t");
             for ( int i = 0; i < palabraRandom.length(); i++) {
                 System.out.print( caracteres[i] );
             }
@@ -67,7 +67,8 @@ public class Ahorcado_básico {
             }
 
             if (hayLetraRepetida) {
-                System.out.println("No repita letras.");
+                System.out.println("No repita letras.\n");
+                // Tal vez agregar un contador de letras repetidas.
             }   else {
                 letras_usadas.add(ingreso);
                 for ( int i = 0; i < palabraRandom.length(); i++) {

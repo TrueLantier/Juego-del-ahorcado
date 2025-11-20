@@ -1,13 +1,12 @@
-//IMPORTANTE hay que saber que hace cada línea de código. *****
+// Usando BufferedReader.
+import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Random;
-import java.util.*;
-import java.nio.file.*;
-import java.io.*;
+
 
 public class Ahorcado_básico {
     public static void main(String[] args) {
@@ -15,20 +14,20 @@ public class Ahorcado_básico {
 
         List<String> palabras = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("/home/angel/Documentos" +
-                "/ESCUELA/Juego del ahorcado/Prueba.txt"));)  {
+                "/ESCUELA/Juego del ahorcado/Palabras.txt"));)  {
             String linea;
             while ( (linea = br.readLine()) != null ) {
                 palabras.add(linea);
                 //System.out.print(linea + " ");
             }
         }   catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error leyendo archivo: " + e.getMessage());
         }
 
         Random random = new Random();
         int indiceAleatorio = random.nextInt(palabras.size());
         String palabraRandom = palabras.get(indiceAleatorio);
-        String[] caracteres = new String[palabraRandom.length()]; // Todavía mejorable.
+        String[] caracteres = new String[palabraRandom.length()]; // Todavía mejorable. Tal vez cambiar por StringBuilder
         for ( int i = 0; i < palabraRandom.length(); i++) {
             caracteres[i] = "_";
         }
@@ -61,7 +60,7 @@ public class Ahorcado_básico {
             ingreso = ingreso.toUpperCase().trim();
 
             for ( String letra_repetida: letras_usadas) {
-                if (letra_repetida.equals(letras_usadas)) {
+                if (letra_repetida.equals(ingreso)) {
                     hayLetraRepetida = true;
                     break;
                 }
@@ -87,20 +86,17 @@ public class Ahorcado_básico {
                     vidas--;
                 }
             }
-
-
-
         }   while ( (vidas > 0 ) && (contador_aciertos < palabraRandom.length()) );
 
         if ( !encontrar_letra ) {
             System.out.println("Vidas = 0 \nHas perdido.");
             System.out.println(palabraRandom);
         }   else {
-            System.out.println("Has ganado.");
             for ( int i = 0; i < palabraRandom.length(); i++) {
                 palabra_formada += caracteres[i];
             }
             System.out.println(palabra_formada);
+            System.out.println("Has ganado.");
         }
 
         scanner.close();

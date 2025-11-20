@@ -1,5 +1,5 @@
 Guía y notas sobre el proyecto a desarrollar: juego del ahorcado.
-
+IMPORTANTE hay que saber que hace cada línea de código. *****
 Un juego del ahorcado consiste en tratar de adivinar una palabra antes que la figura u objeto muera/desaparezca.
 
 - Se hará trabajo con strings.

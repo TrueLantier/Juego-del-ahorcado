@@ -1,9 +1,11 @@
-// Métodos propios. Luego usaré StringBuild y sus métodos.
+//IMPORTANTE hay que saber que hace cada línea de código. *****
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Random;
 import java.util.*;
 import java.nio.file.*;
 import java.io.*;
@@ -28,14 +30,28 @@ public class Ahorcado_básico {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        List<String> palabras = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("/home/angel/Documentos" +
+                "/ESCUELA/Juego del ahorcado/Palabras.txt"));)  {
+            String linea;
+            while ( (linea = br.readLine()) != null ) {
+                palabras.add(linea);
+                //System.out.print(linea + " ");
+            }
+        }   catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Random random = new Random();
+        int indiceAleatorio = random.nextInt(palabras.size());
+        String palabraRandom = palabras.get(indiceAleatorio);
 
         System.out.println("Bienvenido al juego del ahorcado.");
         String[] lista = {"ANGEL"};
 
-
-        String palabra = lista[0];
-        String[] caracteres = new String[palabra.length()];
-        for ( int i = 0; i < palabra.length(); i++) {
+        //String palabra = lista[0];
+        String[] caracteres = new String[palabraRandom.length()]; // Todavía mejorable.
+        for ( int i = 0; i < palabraRandom.length(); i++) {
             caracteres[i] = "_";
         }
         String palabra_formada = "";
@@ -45,7 +61,7 @@ public class Ahorcado_básico {
         int contador_aciertos = 0;
 
         do {
-            for ( int i = 0; i < palabra.length(); i++) {
+            for ( int i = 0; i < palabraRandom.length(); i++) {
                 System.out.print( caracteres[i] );
             }
 
@@ -54,8 +70,8 @@ public class Ahorcado_básico {
             ingreso = String.valueOf(scanner.nextLine().charAt(0)); // Ver cómo mejorar.
             ingreso = ingreso.toUpperCase().trim();
 
-            for ( int i = 0; i < palabra.length(); i++) {
-                if ( ingreso.equals(String.valueOf(palabra.charAt(i))) ) {
+            for ( int i = 0; i < palabraRandom.length(); i++) {
+                if ( ingreso.equals(String.valueOf(palabraRandom.charAt(i))) ) {
                     caracteres[i] = ingreso;
                     encontrar_letra = true;
                     contador_aciertos++;
@@ -70,13 +86,14 @@ public class Ahorcado_básico {
                 vidas--;
             }
 
-        }   while ( (vidas > 0 ) && (contador_aciertos < palabra.length()) );
+        }   while ( (vidas > 0 ) && (contador_aciertos < palabraRandom.length()) );
 
         if ( !encontrar_letra ) {
             System.out.println("Vidas = 0 \nHas perdido.");
+            System.out.println(palabraRandom);
         }   else {
             System.out.println("Has ganado.");
-            for ( int i = 0; i < palabra.length(); i++) {
+            for ( int i = 0; i < palabraRandom.length(); i++) {
                 palabra_formada += caracteres[i];
             }
             System.out.println(palabra_formada);

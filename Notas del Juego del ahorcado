@@ -14,5 +14,9 @@ Fase 0 (sin interfaz)
     En ambos casos la letra seleccionada debe quedar inhabilitada. // Interfaz
 6- Continuar hasta acertar la palabra o perder todas las vidas. HECHO
 
+Bugs o cosas faltantes
+* No pones letras usadas.
+* Las letras repetidas en las palabras solo se ponen la primera vez.
+
 
 // Poner diferentes archivos para diferentes modos?

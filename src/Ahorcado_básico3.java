@@ -1,4 +1,4 @@
-//Usando Files.readAllLines
+//Usando Files.readAllLines. Recomendado para el proyecto. Más rápido para archivos pequeños.
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
